@@ -288,8 +288,8 @@ export default function Storefront() {
                     <RadioGroup value={customization.sugar} onValueChange={(val) => setCustomization({...customization, sugar: val})} className="grid grid-cols-3 gap-2">
                         {["正常甜", "少糖", "半糖", "微糖", "二分糖", "無糖"].map(s => (
                             <div key={s}>
-                                <RadioGroupItem value={s} id={`s-${s}`} className="peer sr-only" />
-                                <Label htmlFor={`s-${s}`} className="flex cursor-pointer items-center justify-center rounded-md border-2 border-muted bg-popover p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-orange-500 peer-data-[state=checked]:bg-orange-50 peer-data-[state=checked]:text-orange-700">
+                                <RadioGroupItem value={s} id={`s-${s}`} className="sr-only" />
+                                <Label htmlFor={`s-${s}`} className="flex cursor-pointer items-center justify-center rounded-md border-2 border-slate-100 bg-white p-2 transition-all hover:bg-slate-50 peer-data-checked:border-orange-500 peer-data-checked:bg-orange-50 peer-data-checked:text-orange-700 font-medium">
                                     {s}
                                 </Label>
                             </div>
@@ -302,8 +302,8 @@ export default function Storefront() {
                     <RadioGroup value={customization.ice} onValueChange={(val) => setCustomization({...customization, ice: val})} className="grid grid-cols-3 gap-2">
                         {["正常冰", "少冰", "微冰", "去冰", "完全去冰", "溫飲", "熱飲"].map(i => (
                             <div key={i}>
-                                <RadioGroupItem value={i} id={`i-${i}`} className="peer sr-only" />
-                                <Label htmlFor={`i-${i}`} className="flex cursor-pointer items-center justify-center rounded-md border-2 border-muted bg-popover p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-blue-500 peer-data-[state=checked]:bg-blue-50 peer-data-[state=checked]:text-blue-700">
+                                <RadioGroupItem value={i} id={`i-${i}`} className="sr-only" />
+                                <Label htmlFor={`i-${i}`} className="flex cursor-pointer items-center justify-center rounded-md border-2 border-slate-100 bg-white p-2 transition-all hover:bg-slate-50 peer-data-checked:border-blue-500 peer-data-checked:bg-blue-50 peer-data-checked:text-blue-700 font-medium">
                                     {i}
                                 </Label>
                             </div>

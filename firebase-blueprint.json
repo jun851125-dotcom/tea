@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "Category": {
+      "title": "Category",
+      "description": "Product categories for the tea shop menu.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Category name" },
+        "order": { "type": "number", "description": "Display order" }
+      },
+      "required": ["name", "order"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Drink items available in the shop.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Product name" },
+        "categoryId": { "type": "string", "description": "ID of the category" },
+        "price": { "type": "number", "description": "Base price" },
+        "description": { "type": "string", "description": "Product description" },
+        "imageUrl": { "type": "string", "description": "URL of product image" },
+        "isAvailable": { "type": "boolean", "description": "Whether the product is currently available" }
+      },
+      "required": ["name", "categoryId", "price", "isAvailable"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer orders.",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productId": { "type": "string" },
+              "name": { "type": "string" },
+              "price": { "type": "number" },
+              "quantity": { "type": "number" },
+              "ice": { "type": "string" },
+              "sugar": { "type": "string" },
+              "toppings": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "totalAmount": { "type": "number" },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "preparing", "ready", "completed", "cancelled"]
+        },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "items", "totalAmount", "status", "createdAt"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "Global shop settings.",
+      "type": "object",
+      "properties": {
+        "shopName": { "type": "string" },
+        "isOpen": { "type": "boolean" },
+        "announcement": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "categories": {
+      "schema": "Category",
+      "description": "Collection of product categories"
+    },
+    "products": {
+      "schema": "Product",
+      "description": "Collection of drinks"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Collection of customer orders"
+    },
+    "settings": {
+      "schema": "Setting",
+      "description": "Global settings"
+    }
+  }
+}
